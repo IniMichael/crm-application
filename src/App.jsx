@@ -18,10 +18,10 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path='/Login' component={Login} />
         <Route path="/UserDashboard" component={UserDashboard} />
-        {/* <Route path="/cancelledmodal" component={CancelledModal} />
-        <Route path="/regsuccessmodal" component={RegSuccessModal}/>
-        <Route path="/custommsgmodal" component={CustomMsgModal} />
-        <Route path="createeventsuccmodal" component={CreateEventSuccessModal} /> */}
+        {/* <Route path="/cancelledmodal" component={CancelledModal} /> */}
+        {/* <Route path="/regsuccessmodal" component={RegSuccessModal}/> */}
+        {/* <Route path="/custommsgmodal" component={CustomMsgModal} /> */}
+        {/* // <Route path="/createeventsuccmodal" component={CreateEventSuccessModal} /> */}
       </Switch>
     </Router>
   )
