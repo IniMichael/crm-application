@@ -1,0 +1,343 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.all-containers{
+  display: flex;
+  flex-direction: row;
+}
+
+.first-container{
+  padding: 55px 20px;
+  padding-left: 225px;
+}
+
+.btn-search input{
+  width: 367px;
+  height: 46px;
+  border-radius: 12px;
+  border: 1px solid black;
+  padding: 25px;
+}
+
+.btn-search input::placeholder{
+  color: black;
+  font-size: 18px;
+}
+
+.welcome{
+  width: 660px;
+  height: 194px;
+  background: #F4F4F4;
+  margin-top: 40px;
+}
+
+.welcome-btn{
+  display: flex;
+  justify-content: space-between;
+  border-radius: 12px;
+}
+
+.welcome-event{
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.welcome-event h2{
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.welcome-event p{
+  padding-top: 15px;
+}
+
+.event{
+  padding: 55px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding-left: 80px;
+}
+
+.event button{
+  width: 197px;
+  height: 37px;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: #F4F4F4;
+  font-size: 15px;
+}
+
+
+
+.btn-up{
+  display: flex;
+  flex-direction: row;
+  padding-top: 40px;
+  justify-content: space-between;
+}
+
+.save-me{
+  width: 660px;
+  height: 325px;
+  background: #F4F4F4;
+  margin-top: 40px;
+  border-radius: 12px;
+}
+
+.save-me h3{
+  padding: 25px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.btn-up a{
+  outline: none;
+  border: none;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.btn-up h3{
+  font-size: 30px;
+  font-weight: 700;
+}
+
+
+.about{
+  padding: 25px;
+}
+
+.p-span{
+  font-size: 20px;
+  font-weight: 400;
+  color: black;
+}
+
+.date{
+  padding: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.about p{
+  padding-top: 7px;
+}
+
+.date span{
+  font-size: 18px;
+  color: black;
+  font-weight: 400;
+}
+
+.date button{
+  width: 180px;
+  height: 40px;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: #F4F4F4;
+  font-size: 15px;
+}
+
+.btn-14{
+  width: 326px;
+  height: 1510px;
+  background: #F4F4F4;
+}
+
+.net-div{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.net-container{
+  width: 325px;
+  height: 380px;
+  background: #F4F4F4;
+  margin-top: 40px;
+  border-radius: 12px;
+  padding-top: 20px;
+}
+
+.net-container  p{
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: serif;
+}
+
+.net-container .br-family{
+  font-family: serif;
+  font-size: 19px;
+}
+
+.net-container button{
+  padding: 15px 30px;
+  margin: 20px;
+  background: black;
+  color: white;
+  font-size: 16px;
+  border-radius: 12px;
+}
+
+<!-- Calendar --/
+
+
+
+
+.btn-calender{
+  position: relative;
+  height: 350px;
+  width: 325px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.days .number{
+  font-size: 18px;
+}
+
+
+.btn-calender .days{
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+  border: 5px solid #F4F4F4;
+  border-radius: 12px;
+}
+
+.btn-calender .day{
+  font-size: 20px;
+}
+
+
+
+.btn-calender .number:hover,
+.btn-calender .number-p:hover{
+  border: 2px solid grey;
+  background: rgb(64, 64, 247);
+  color: white;
+  font-size: 23px;
+}
+
+
+.btn-calender .number.active{
+  background: rgb(173, 247, 120);
+  border-radius: 50%;
+  border: 2px solid grey;
+}
+
+.btn-body h2{
+  font-size: 30px;
+  padding: 20px;
+  font-weight: 700;
+}
+
+
+.btn-calender .day,
+.btn-calender .number,
+.btn-calender .number-p
+{
+  height: 45px;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+.my-event{
+  padding: 20px;
+  margin-top: 60px;
+}
+
+.my-event h1{
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.my-event-btn{
+  padding: 20px 30px;
+  background: white;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.my-event-btn p{
+  font-size: 20px;
+}
+
+.Analytics{
+  padding: 20px;
+  margin-top: 60px;
+}
+
+.Analytics h2{
+  padding-bottom: 50px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.over-btn{
+  padding: 20px 0px;
+  background: white;
+  border-radius: 12px;
+  margin-top: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.over-btn p{
+  font-size: 20px;
+  color: black;
+}
+
+.image-div img{
+  padding-right: 20px;
+  align-items: center;
+}
+
+#img-div{
+  margin-left: -27px;
+}
+
+#img-div2{
+  margin-left: -15px;
+}
+
+
+.image-div{
+  padding-right: 10px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

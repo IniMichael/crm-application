@@ -1,0 +1,208 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.App-header{
+  display: flex;
+  flex-direction: row;
+  width:100%;
+}
+
+.picture{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(198, 194, 194);
+    width: 60%;
+}
+
+.picture-btn{
+  width: 100%;
+  height: 100%;
+}
+
+
+.App{
+    display: flex;
+    height: 100%;
+}
+
+.container-1{
+    background-color: white;
+    border-radius: 5px;
+    padding: 30px;
+    text-align: center;
+    width: 47%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.first-content{
+    color: #333;
+    font-family: Source Sans 3;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding-top: 50px;
+}
+
+.btn{
+    align-items: center;
+    color: #292929;
+    font-family: Source Sans 3;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 30px;
+}
+
+.btn-buddy{
+  color: #669083;
+font-family: Source Serif Pro;
+font-size: 32px;
+font-style: normal;
+font-weight: 900;
+line-height: normal;
+}
+
+.btn-event{
+  color: #1E1E1E;
+font-family: Source Serif Pro;
+font-size: 32px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.login-button{
+  width: 100%;
+  height: 56px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: 1px solid #7E7E7E;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.button-p{
+  color: #1E1E1E;
+  font-family: Source Sans 3;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.btn-or{
+  color: #1E1E1E;
+  font-family: Source Sans 3;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-top: 40px;
+}
+
+label{
+  font-size: 20px;
+  padding-top: 15px;
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+}
+
+.label-btn{
+  padding-right: 84%;
+}
+
+.icons{
+  position: absolute;
+  right: 18px;
+  top: 60%;
+}
+
+.input-1{
+    line-height: normal;
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 30px 20px;
+    border-radius: 12px;
+    border: 1px solid #7E7E7E;
+}
+
+
+.input-box{
+  padding-top: 0px;
+  position: relative;
+}
+
+.remember-forgot{
+  padding-top: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.check-rem{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.check-box{
+  width: 28px;
+  height: 19px;
+  padding: 10px 20px;
+}
+
+.btn-checkbox{
+  color: #1E1E1E;
+font-family: Source Sans 3;
+font-size: 18px;
+font-weight: 500;
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+}
+
+.btn-checkbox span{
+  padding-left: 8px;
+}  
+
+.btn-checkbox-forgot{
+  font-size: 16px;
+font-style: italic;
+font-weight: 400;
+}
+
+.sign-btn{
+  padding-top: 15px;
+  font-family: Source Sans 3;
+  font-size: 20px;
+  font-style: normal;
+}
+
+.sign-btn-button{
+  padding: 20px 48px;
+  border-radius: 12px;
+  background: #1E1E1E;
+  color: white;
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+
+
+
