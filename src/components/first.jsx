@@ -6,15 +6,15 @@ import {Link,useHistory} from 'react-router-dom';
 function First() {
   const history = useHistory()
   return (
-    <div className='flex justify-center items-center text-xl my-6'>
-        <div className='mr-10'>
-          <img src="heroImage.png" alt="HeroImage"/>
+    <div className='flex justify-center items-center text-xl my-4'>
+        <div className='flex justify-center items-center mr-20'>
+          <img src="heroImage.png" alt="HeroImage" className=''/>
         </div>
 
-        <div className='h-full pr-10'>
+        <div className='h-full mr-5'>
           <div className='text-center'>
           <p className='font-semibold text-source-sans-3 text-3xl'>Sign Up to <span className='font-normal  text-source-serif'>Event</span><span className='font-black text-source-serif text-[#669083]'>Buddy</span></p>
-          <p className='pb-10'>Please fill this form to create an account</p>
+          <p className='pb-8'>Please fill this form to create an account</p>
           </div>
 
           <button className='flex justify-center border border-[#7E7E7E] rounded-xl w-[450px] h-[56px] items-center gap-4 mb-3'>
@@ -36,15 +36,13 @@ function First() {
             <div className='flex flex-col text-lg relative'>
             <label htmlFor="Password">Password</label>
             <input type="password" className='border border-[#7E7E7E] rounded-xl w-[450px] h-[56px] opacity-50 pl-3 text-[#1E1E1E] mb-6' placeholder="********************" required/>
-            <FontAwesomeIcon icon={faEyeSlash} className='absolute right-3 top-[92px] cursor-pointer'/>
+            <FontAwesomeIcon icon={faEyeSlash} className='absolute right-3 top-[67px] cursor-pointer'/>
             </div>
 
-            <div className='m-auto'>
-            
-            <button className='text-white bg-black w-[170px] h-[56px] rounded-xl text-xl mb-2' onClick={() => history.push('/Login')}>
+            <div className='m-auto'>           
+            <button className='text-white bg-black w-[170px] h-[56px] rounded-xl text-xl mb-1' onClick={() => history.push('/Login')}>
               Sign Up
-            </button>
-             
+            </button>             
             </div>
           </form>
 

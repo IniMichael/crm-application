@@ -8,14 +8,14 @@
   display: flex;
   flex-direction: row;
   width:100%;
+  height: 100%;
 }
 
 .picture{
+    width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: #F4F4F4; */
-    width: 60%;
 }
 
 .App{
@@ -26,11 +26,10 @@
 .container-1{
     background-color: white;
     border-radius: 5px;
-    padding: 30px;
-    padding-top: 0px;
+    padding: 10px 30px;
     text-align: center;
-    width: 47%;
-  height: 70%;
+    width: 60%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -42,7 +41,6 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    padding-top: 50px;
 }
 
 .btn{
@@ -53,7 +51,8 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    padding: 30px;
+    padding: 10px;
+    margin-bottom: 20px;
 }
 
 .btn-buddy{
@@ -77,22 +76,20 @@ line-height: normal;
 .login-button{
   width: 100%;
   height: 56px;
-  padding: 16px 24px;
+  padding: 14px 24px;
   border-radius: 12px;
   border: 1px solid #7E7E7E;
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 10px;
+  margin-bottom: 10px;
 }
 
 .button-p{
-  color: #1E1E1E;
-  font-family: Source Sans 3;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
 }
 
 .btn-or{
@@ -102,25 +99,20 @@ line-height: normal;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  padding-top: 40px;
+  margin-top: 20px;
 }
 
 label{
   font-size: 20px;
-  padding-top: 15px;
-  margin-top: 30px;
+  margin-top: 20px;
   width: 100%;
   display: flex;
-}
-
-.label-btn{
-  padding-right: 84%;
 }
 
 .icons{
   position: absolute;
   right: 18px;
-  top: 60%;
+  top: 53%;
 }
 
 .input-1{
@@ -133,12 +125,14 @@ label{
     padding: 30px 20px;
     border-radius: 12px;
     border: 1px solid #7E7E7E;
+    color: #7E7E7E;
 }
 
 
 .input-box{
   padding-top: 0px;
   position: relative;
+  margin-top: -10px;
 }
 
 .remember-forgot{
@@ -159,7 +153,6 @@ label{
 .check-box{
   width: 28px;
   height: 19px;
-  padding: 10px 20px;
 }
 
 .btn-checkbox{

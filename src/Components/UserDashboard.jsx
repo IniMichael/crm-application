@@ -80,7 +80,7 @@ function UserDashboard() {
       <header className="App-header">
         <div className="all">
           <div className="container">
-            <nav className="bg-black w-[205px] h-full fixed text-source-sans-3 font-medium text-md pt-10">
+            <nav className="bg-black w-[205px] top-0 bottom-0 overflow-y-auto left-0 fixed text-source-sans-3 font-medium text-md pt-10">
               <div>
                 <p className="text-2xl font-normal mb-14 pl-5">
                   <span className="font-normal text-source-serif text-[#FFFFFF]">
