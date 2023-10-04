@@ -4,7 +4,7 @@ function RegFormModal({ closeModal }) {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="fixed inset-0 bg-black opacity-60"></div>
-      <div className="fixed z-10 w-[505px] h-[565px] bg-white rounded-xl py-5 px-7">
+      <div className="fixed z-10 w-[505px] h-[665px] bg-white rounded-xl py-5 px-7">
         <div className="flex justify-between text-2xl font-semibold mb-7">
           <p className="">Register Here</p>
           <button

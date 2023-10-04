@@ -11,15 +11,76 @@ import analyticsImg from "../assets/analytics.png";
 import setImg from "../assets/set.png";
 import upcomingImg from "../assets/upcoming.png";
 import '../UserDashboard.css'
-
-
+import React, { useState } from 'react';
+import RegFormModal from '../components/regformmodal';
+import RegSuccessModal from '../components/regsuccessmodal';
+import CreateEventFormModal from '../components/createeventformmodal';
+import CustomMsgModal from '../components/custommsgmodal';
+import CreateEventSuccessModal from '../components/createeventsuccmodal';
+import CancelModal from '../components/cancelmodal';
+import CancelledModal from '../components/cancelledmodal';
+  
 function UserDashboard() { 
+  const [isRegFormModalOpen, setIsRegFormModalOpen] = useState(false);
+  const [isRegSuccessModalOpen, setIsRegSuccessModalOpen] = useState(false);
+  const [isCreateEventModalOpen, setIsCreateEventModalOpen] = useState(false);
+  const [isCustomMsgModalOpen, setIsCustomMsgModalOpen] = useState(false);
+  const [isCreateEventSuccessModalOpen, setIsCreateEventSuccessModalOpen] = useState(false);
+  const [isCancelModalOpen, setIsCancelModalOpen] = useState(false);
+  const [isCancelledModalOpen, setIsCancelledModalOpen] = useState(false);
+  const [isContentBlurred, setIsContentBlurred] = useState(false);
+
+  const openRegFormModal = () => {
+    setIsRegFormModalOpen(true);
+    setIsContentBlurred(true);
+  };
+
+  const openRegSuccessModal = () => {
+    setIsRegSuccessModalOpen(true);
+    setIsContentBlurred(true);
+  };
+
+  const openCreateEventModal = () => {
+    setIsCreateEventModalOpen(true);
+    setIsContentBlurred(true);
+  };
+
+  const openCustomMsgModal = () => {
+    setIsCustomMsgModalOpen(true);
+    setIsContentBlurred(true);
+  };
+
+  const openCreateEventSuccessModal = () => {
+    setIsCreateEventSuccessModalOpen(true);
+    setIsContentBlurred(true);
+  };
+
+  const openCancelModal = () => {
+    setIsCancelModalOpen(true);
+    setIsContentBlurred(true);
+  };
+
+  const openCancelledModal = () => {
+    setIsCancelledModalOpen(true);
+    setIsContentBlurred(true);
+  };
+
+  const closeModal = () => {
+    setIsRegFormModalOpen(false);
+    setIsRegSuccessModalOpen(false);
+    setIsCreateEventModalOpen(false);
+    setIsCustomMsgModalOpen(false);
+    setIsCreateEventSuccessModalOpen(false);
+    setIsCancelModalOpen(false);
+    setIsCancelledModalOpen(false);
+  };
+
   return (
-    <div className="App">
+    <div className={`App ${isContentBlurred ? 'blur-none' : ''}`}>
       <header className="App-header">
         <div className="all">
           <div className="container">
-            <nav className="bg-black w-[205px] h-screen fixed text-source-sans-3 font-medium text-md pt-10">
+            <nav className="bg-black w-[205px] h-full fixed text-source-sans-3 font-medium text-md pt-10">
               <div>
                 <p className="text-2xl font-normal mb-14 pl-5">
                   <span className="font-normal text-source-serif text-[#FFFFFF]">
@@ -146,7 +207,7 @@ function UserDashboard() {
                     </p>
                   </div>
                   <div>
-                    <button>Save me a spot!</button>
+                    <button onClick={openRegFormModal}>Save me a spot!</button>
                   </div>
                 </div>
               </div>
@@ -175,7 +236,7 @@ function UserDashboard() {
                     </p>
                   </div>
                   <div>
-                    <button>Save me a spot!</button>
+                    <button onClick={openRegFormModal}>Save me a spot!</button>
                   </div>
                 </div>
               </div>
@@ -196,7 +257,7 @@ function UserDashboard() {
                   <p>
                     <span>Date:</span> 8:30pm on the 18th, may 2023
                   </p>
-                  <button>Cancle Registration</button>
+                  <button onClick={openCancelModal}>Cancel Registration</button>
                 </div>
                 <div className="net-container">
                   <p className="netwk">Networking Event for Enterpreneurs</p>
@@ -208,7 +269,7 @@ function UserDashboard() {
                   <p>
                     <span className="date20">Date:</span> 8:30pm on the 18th, may 2023
                   </p>
-                  <button>Cancle Registration</button>
+                  <button onClick={openCancelModal}>Cancel Registration</button>
                 </div>
               </div>
             </div>
@@ -216,7 +277,7 @@ function UserDashboard() {
             <div className="second-container">
               <div className="event">
                 <img src={bell}></img>
-                <button>+ Create New Event</button>
+                <button onClick={openCreateEventModal}>+ Create New Event</button>
               </div>
               <div className="btn-14">
                 <div className="btn-body">
@@ -312,7 +373,7 @@ function UserDashboard() {
                       <img src={Frame47}></img>
                     </div>
                     <div>
-                      <p>2 Canclled events</p>
+                      <p>2 Cancelled events</p>
                     </div>
                   </div>
                   <div className="over-btn">
@@ -329,6 +390,27 @@ function UserDashboard() {
           </div>
         </div>
       </header>
+      {isRegFormModalOpen && (
+        <RegFormModal closeModal={closeModal} />
+      )}
+      {isRegSuccessModalOpen && (
+        <RegSuccessModal closeModal={closeModal} />
+      )}
+      {isCreateEventModalOpen && (
+        <CreateEventFormModal closeModal={closeModal} />
+      )}
+      {isCustomMsgModalOpen && (
+        <CustomMsgModal closeModal={closeModal} />
+      )}
+      {isCreateEventSuccessModalOpen && (
+        <CreateEventSuccessModal closeModal={closeModal} />
+      )}
+      {isCancelModalOpen && (
+        <CancelModal closeModal={closeModal} />
+      )}
+      {isCancelledModalOpen && (
+        <CancelledModal closeModal={closeModal} />
+      )}
     </div>
   );
 }
