@@ -1,19 +1,23 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './pages/home';
+import React, { useState } from 'react'
+import './LogIn.css'
+import './UserDashboard.css'
+import Login from './Components/Login'
+import UserDashboard from './Components/UserDashboard'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './pages/navBar';
+import Home from './pages/home';
+
 function App() {
 
   return (
-      <div>
-        <Router>
-          <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/navBar' component={NavBar} />
-          </Switch>
-        </Router>
-      </div>
-      );
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Login} />
+        <Route path='/navBar' component={NavBar} />
+        <Route path="/UserDashboard" component={UserDashboard} />
+      </Switch>
+    </Router>
+  )
 }
 
-export default App;
+export default App
