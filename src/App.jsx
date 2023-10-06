@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './LogIn.css'
 import './UserDashboard.css'
-import UserDashboard from './Components/UserDashboard'
+import UserDashboard from './Components/UserDashboard';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/home';
 import Login from './Components/Login';
