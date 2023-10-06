@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import './LogIn.css'
 import './UserDashboard.css'
-import UserDashboard from './Components/UserDashboard';
+import UserDashboard from './components/UserDashboard';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/home';
-import Login from './Components/Login';
+import Login from './components/Login';
 import CancelledModal from './components/cancelledmodal';
 import RegSuccessModal from './components/regsuccessmodal';
 import CustomMsgModal from './components/custommsgmodal';

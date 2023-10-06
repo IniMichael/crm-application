@@ -41,7 +41,7 @@ function Login() {
                   <label className="label-btn">Password</label>
                   <input className='input-1'
                     type="password"
-                    placeholder="*****************"
+                    placeholder="********************"
                   ></input>
                   <img className="icons" src={iconsvg}></img>
                 </div>
