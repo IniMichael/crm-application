@@ -369,14 +369,14 @@ function UserDashboard() {
                   </div>
 
                   <div className="over-btn">
-                    <div className="image-div" id="img-div2">
+                    <div className="image-div" id="img-div3">
                       <img src={Frame47}></img>
                     </div>
                     <div>
                       <p>2 Cancelled events</p>
                     </div>
                   </div>
-                  <div className="over-btn">
+                  <div className="over-btn" id="img-div4">
                     <div className="image-div">
                       <img src={Frame46}></img>
                     </div>
@@ -387,6 +387,7 @@ function UserDashboard() {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </header>

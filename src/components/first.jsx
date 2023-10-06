@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
-import {Link,useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 function First() {
   const history = useHistory()
@@ -46,7 +46,10 @@ function First() {
             </div>
           </form>
 
-          <p className='flex justify-center gap-1 text-[#5D5D5D]'>Already have an account?<a href=""><span className='italic font-semibold text-[#5D5D5D]'>Sign in</span></a></p>
+          <p className='flex justify-center gap-1 text-[#5D5D5D]'>Already have an account?
+          <a href=""><span className='italic font-semibold text-[#5D5D5D]' onClick={() => history.push('/Login')}>Sign in</span>
+          </a>
+          </p>
         </div>
         </div>
   );
