@@ -1,10 +1,11 @@
 import React from 'react';
 
 function CreateEventFormModal({ closeModal }) {
+
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50">
+    <div className="create fixed inset-0 flex items-center justify-center z-50">
       <div className="fixed inset-0 bg-black opacity-60"></div>
-      <div className="fixed z-10 w-[507px] h-[600px] bg-white rounded-xl py-5 px-7">
+      <div className="fixed w-[507px] h-[700px] bg-white rounded-xl py-5 px-7">
         <div className="flex justify-between text-2xl font-semibold mb-5">
           <p className="">Create Your Event</p>
           <button
@@ -49,6 +50,7 @@ function CreateEventFormModal({ closeModal }) {
             <button className='text-white bg-black w-[140px] h-[40px] rounded-lg text-xl mb-2'>
               Create Event
             </button>
+            
             </div>
           </form>
           </div>

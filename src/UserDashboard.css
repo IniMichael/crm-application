@@ -19,7 +19,7 @@
 
 .first-container{
   padding: 55px 20px;
-  padding-left: 225px;
+  padding-left: 230px;
 }
 
 .btn-search input{
@@ -303,7 +303,6 @@
 }
 
 .over-btn{
-  padding: 20px 0px;
   background: white;
   border-radius: 12px;
   margin-top: 20px;
@@ -312,7 +311,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 0px;
 }
 
 .over-btn p{
@@ -327,6 +326,14 @@
 
 #img-div{
   margin-left: -27px;
+}
+
+#img-div3{
+  margin-left: 4px;
+}
+
+#img-div4{
+  padding-left: 22px;
 }
 
 #img-div2{

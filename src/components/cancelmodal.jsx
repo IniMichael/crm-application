@@ -16,9 +16,10 @@ function CancelModal({ closeModal }) {
       </div>
 
         <div className='flex justify-center gap-5'>
-            <button className='text-black border-2 border-[#1E1E1E] bg-white w-[140px] h-[40px] rounded-lg text-xl mb-2'>
+          <button className='text-black border-2 border-[#1E1E1E] bg-white w-[140px] h-[40px] rounded-lg text-xl mb-2'>
               Yes, Cancel
-            </button>
+          </button>
+          
             <button className='text-white bg-black w-[170px] h-[40px] rounded-lg text-xl mb-2'>
               No, Don't Cancel
             </button>

@@ -2,9 +2,10 @@ import '../LogIn.css'
 import testsvg from "../assets/flat.svg";
 import iconsvg from "../assets/eye-slash.svg";
 import picture from "../assets/image 11.png";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 function Login() {
+  const history = useHistory()
   return (
     <div className="App">
       <header className="App-header">
@@ -67,7 +68,7 @@ function Login() {
                     </Link>
                   
                   <p className="sign-btn">
-                    Don’t have an account? <a href="#">Sign Up</a>
+                    Don’t have an account? <a href="" onClick={() => history.push('/')}>Sign Up</a>
                   </p>
                 </div>
               </form>
