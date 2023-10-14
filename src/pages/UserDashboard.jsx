@@ -10,33 +10,29 @@ import registeredImg from "../assets/registered.png";
 import analyticsImg from "../assets/analytics.png";
 import setImg from "../assets/set.png";
 import upcomingImg from "../assets/upcoming.png";
-import '../UserDashboard.css'
-import React, { useState } from 'react';
-import RegFormModal from '../components/regformmodal';
-import RegSuccessModal from '../components/regsuccessmodal';
-import CreateEventFormModal from '../components/createeventformmodal';
-import CustomMsgModal from '../components/custommsgmodal';
-import CreateEventSuccessModal from '../components/createeventsuccmodal';
-import CancelModal from '../components/cancelmodal';
-import CancelledModal from '../components/cancelledmodal';
-  
-function UserDashboard() { 
+import "../UserDashboard.css";
+import React, { useState } from "react";
+import RegFormModal from "../components/regformmodal";
+import RegSuccessModal from "../components/regsuccessmodal";
+import CreateEventFormModal from "../components/createeventformmodal";
+import CreateEventSuccessModal from "../components/createeventsuccmodal";
+import CancelModal from "../components/cancelmodal";
+import CancelledModal from "../components/cancelledmodal";
+
+function UserDashboard() {
   const [isRegFormModalOpen, setIsRegFormModalOpen] = useState(false);
-  const [isRegSuccessModalOpen, setIsRegSuccessModalOpen] = useState(false);
+  const [isRegisterSuccess, setIsRegisterSuccess] = useState(false);
+
   const [isCreateEventModalOpen, setIsCreateEventModalOpen] = useState(false);
-  const [isCustomMsgModalOpen, setIsCustomMsgModalOpen] = useState(false);
-  const [isCreateEventSuccessModalOpen, setIsCreateEventSuccessModalOpen] = useState(false);
-  const [isCancelModalOpen, setIsCancelModalOpen] = useState(false);
-  const [isCancelledModalOpen, setIsCancelledModalOpen] = useState(false);
+  const [isCreateEventSuccess, setIsCreateEventSuccess] = useState(false);
+
+  const [isCancelRegModalOpen, setIsCancelRegModalOpen] = useState(false);
+  const [isCancelRegSuccess, setIsCancelRegSuccess] = useState(false);
+
   const [isContentBlurred, setIsContentBlurred] = useState(false);
 
   const openRegFormModal = () => {
     setIsRegFormModalOpen(true);
-    setIsContentBlurred(true);
-  };
-
-  const openRegSuccessModal = () => {
-    setIsRegSuccessModalOpen(true);
     setIsContentBlurred(true);
   };
 
@@ -45,42 +41,24 @@ function UserDashboard() {
     setIsContentBlurred(true);
   };
 
-  const openCustomMsgModal = () => {
-    setIsCustomMsgModalOpen(true);
+  const openCancelRegModal = () => {
+    setIsCancelRegModalOpen(true)
     setIsContentBlurred(true);
   };
 
-  const openCreateEventSuccessModal = () => {
-    setIsCreateEventSuccessModalOpen(true);
-    setIsContentBlurred(true);
-  };
-
-  const openCancelModal = () => {
-    setIsCancelModalOpen(true);
-    setIsContentBlurred(true);
-  };
-
-  const openCancelledModal = () => {
-    setIsCancelledModalOpen(true);
-    setIsContentBlurred(true);
-  };
-
-  const closeModal = () => {
+  const closeFormModal = () => {
     setIsRegFormModalOpen(false);
-    setIsRegSuccessModalOpen(false);
     setIsCreateEventModalOpen(false);
+    setIsCancelRegModalOpen(false);
     setIsCustomMsgModalOpen(false);
-    setIsCreateEventSuccessModalOpen(false);
-    setIsCancelModalOpen(false);
-    setIsCancelledModalOpen(false);
   };
 
   return (
-    <div className={`App ${isContentBlurred ? 'blur-none' : ''}`}>
+    <div className={`App ${isContentBlurred ? "blur-none" : ""}`}>
       <header className="App-header">
         <div className="all">
           <div className="container">
-            <nav className="bg-black w-[205px] top-0 bottom-0 overflow-y-auto left-0 fixed text-source-sans-3 font-medium text-md pt-10">
+            <nav className="bg-black w-[205px] h-full fixed text-source-sans-3 font-medium text-md pt-10">
               <div>
                 <p className="text-2xl font-normal mb-14 pl-5">
                   <span className="font-normal text-source-serif text-[#FFFFFF]">
@@ -187,9 +165,9 @@ function UserDashboard() {
                 <h3>Product Launch</h3>
                 <div className="about">
                   <p>
-                    <spn className="p-span">About the Event:</spn> Stakeholders
-                    and staff of Ril gather here as we lauch our new and
-                    indomitable
+                    <span className="p-span">About the Event:</span>{" "}
+                    Stakeholders and staff of Ril gather here as we lauch our
+                    new and indomitable
                   </p>
                   <p>
                     product “HEADLESS HR”. We would be elated to have you here.
@@ -216,9 +194,9 @@ function UserDashboard() {
                 <h3>Product Launch</h3>
                 <div className="about">
                   <p>
-                    <spn className="p-span">About the Event:</spn> Stakeholders
-                    and staff of Ril gather here as we lauch our new and
-                    indomitable
+                    <span className="p-span">About the Event:</span>{" "}
+                    Stakeholders and staff of Ril gather here as we lauch our
+                    new and indomitable
                   </p>
                   <p>
                     product “HEADLESS HR”. We would be elated to have you here.
@@ -257,7 +235,7 @@ function UserDashboard() {
                   <p>
                     <span>Date:</span> 8:30pm on the 18th, may 2023
                   </p>
-                  <button onClick={openCancelModal}>Cancel Registration</button>
+                  <button onClick={openCancelRegModal}>Cancel Registration</button>
                 </div>
                 <div className="net-container">
                   <p className="netwk">Networking Event for Enterpreneurs</p>
@@ -267,9 +245,10 @@ function UserDashboard() {
                     your way to the top<br></br>
                   </p>
                   <p>
-                    <span className="date20">Date:</span> 8:30pm on the 18th, may 2023
+                    <span className="date20">Date:</span> 8:30pm on the 18th,
+                    may 2023
                   </p>
-                  <button onClick={openCancelModal}>Cancel Registration</button>
+                  <button onClick={openCancelRegModal}>Cancel Registration</button>
                 </div>
               </div>
             </div>
@@ -277,7 +256,9 @@ function UserDashboard() {
             <div className="second-container">
               <div className="event">
                 <img src={bell}></img>
-                <button onClick={openCreateEventModal}>+ Create New Event</button>
+                <button onClick={openCreateEventModal}>
+                  + Create New Event
+                </button>
               </div>
               <div className="btn-14">
                 <div className="btn-body">
@@ -387,30 +368,37 @@ function UserDashboard() {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </header>
       {isRegFormModalOpen && (
-        <RegFormModal closeModal={closeModal} />
-      )}
-      {isRegSuccessModalOpen && (
-        <RegSuccessModal closeModal={closeModal} />
+        <RegFormModal
+          closeFormModal={closeFormModal}
+          showRegisterConfirmModal={() => setIsRegisterSuccess(true)}
+        />
       )}
       {isCreateEventModalOpen && (
-        <CreateEventFormModal closeModal={closeModal} />
+        <CreateEventFormModal 
+        closeCreateEventModal={closeFormModal} 
+        showCreateEventConfirmModal={() => setIsCreateEventSuccess(true)}/>
       )}
-      {isCustomMsgModalOpen && (
-        <CustomMsgModal closeModal={closeModal} />
+
+      {isCancelRegModalOpen && (
+        <CancelModal 
+          closeCancelRegModal={closeFormModal} 
+          showCancelRegConfirmModal={() => setIsCancelRegSuccess(true)}
+        />
       )}
-      {isCreateEventSuccessModalOpen && (
-        <CreateEventSuccessModal closeModal={closeModal} />
+
+      {isRegisterSuccess && (
+        <RegSuccessModal closeRegSuccess={() => setIsRegisterSuccess(false)} />
       )}
-      {isCancelModalOpen && (
-        <CancelModal closeModal={closeModal} />
+      {isCreateEventSuccess && (
+        <CreateEventSuccessModal closeEventSuccess={() => setIsCreateEventSuccess(false)} />
       )}
-      {isCancelledModalOpen && (
-        <CancelledModal closeModal={closeModal} />
+
+      {isCancelRegSuccess && (
+        <CancelledModal closeCancelRegSuccess={() => setIsCancelRegSuccess(false)} />
       )}
     </div>
   );

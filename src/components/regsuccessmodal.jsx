@@ -1,7 +1,7 @@
 import React from 'react';
 import checkMark from '../components/assets/checkmark.png';
 
-function RegSuccessModal({ closeModal }) {
+function RegSuccessModal({closeRegSuccess}) {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
     <div className="fixed inset-0 bg-black opacity-60"></div>
@@ -9,7 +9,7 @@ function RegSuccessModal({ closeModal }) {
       <div className="text-right text-2xl font-semibold mb-7">
         <button
           className="hover:text-red-700 text-[#667080]"
-          onClick={closeModal}
+          onClick={closeRegSuccess}
         >
           x
         </button>
