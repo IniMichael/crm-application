@@ -1,11 +1,20 @@
 import '../LogIn.css'
 import testsvg from "../assets/flat.svg";
-import iconsvg from "../assets/eye-slash.svg";
 import picture from "../assets/image 11.png";
 import { Link, useHistory } from 'react-router-dom';
+import {React, useState} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
+import { faEye } from '@fortawesome/free-regular-svg-icons';
 
 function Login() {
-  const history = useHistory()
+  
+  const history = useHistory();
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -40,10 +49,14 @@ function Login() {
                 <div className="input-box">
                   <label className="label-btn">Password</label>
                   <input className='input-1'
-                    type="password"
+                    type={passwordVisible ? 'text' : 'password'}
                     placeholder="********************"
-                  ></input>
-                  <img className="icons" src={iconsvg}></img>
+                  />
+                  <FontAwesomeIcon
+                  icon={passwordVisible ? faEye : faEyeSlash}
+                  className='icons'
+                  onClick={togglePasswordVisibility}
+                  />
                 </div>
 
                 <div class="remember-forgot">

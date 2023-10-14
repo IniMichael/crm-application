@@ -112,7 +112,8 @@ label{
 .icons{
   position: absolute;
   right: 18px;
-  top: 53%;
+  top: 55px;
+  cursor: pointer;
 }
 
 .input-1{

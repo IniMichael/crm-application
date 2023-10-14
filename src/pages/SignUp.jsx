@@ -1,10 +1,17 @@
-import React from 'react';
+import {React, useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
+import { faEye } from '@fortawesome/free-regular-svg-icons';
 import {useHistory} from 'react-router-dom';
 
 function SignUp() {
-  const history = useHistory()
+
+  const history = useHistory();
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
   return (
     <div className='flex justify-center items-center text-xl my-4'>
         <div className='flex justify-center items-center mr-20'>
@@ -35,8 +42,17 @@ function SignUp() {
 
             <div className='flex flex-col text-lg relative'>
             <label htmlFor="Password">Password</label>
-            <input type="password" className='border border-[#7E7E7E] rounded-xl w-[450px] h-[56px] opacity-50 pl-3 text-[#1E1E1E] mb-6' placeholder="********************" required/>
-            <FontAwesomeIcon icon={faEyeSlash} className='absolute right-3 top-[67px] cursor-pointer'/>
+            <input
+              type={passwordVisible ? 'text' : 'password'}
+              className='border border-[#7E7E7E] rounded-xl w-[450px] h-[56px] opacity-50 pl-3 text-[#1E1E1E] mb-6'
+              placeholder="********************"
+              required
+            />
+            <FontAwesomeIcon
+              icon={passwordVisible ? faEye : faEyeSlash}
+              className='absolute right-3 top-[67px] cursor-pointer'
+              onClick={togglePasswordVisibility}
+            />
             </div>
 
             <div className='m-auto'>           
