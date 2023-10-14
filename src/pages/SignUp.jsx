@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 import {useHistory} from 'react-router-dom';
 
-function First() {
+function SignUp() {
   const history = useHistory()
   return (
     <div className='flex justify-center items-center text-xl my-4'>
@@ -55,4 +55,4 @@ function First() {
   );
 }
 
-export default First;
+export default SignUp;

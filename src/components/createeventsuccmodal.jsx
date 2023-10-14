@@ -1,7 +1,7 @@
 import React from 'react';
 import checkMark from '../components/assets/checkmark.png';
 
-function CreateEventSuccessModal({ closeModal }) {
+function CreateEventSuccessModal({closeEventSuccess}) {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
@@ -10,7 +10,7 @@ function CreateEventSuccessModal({ closeModal }) {
       <div className="text-right text-2xl font-semibold mb-7">
         <button
           className="hover:text-red-700 text-[#667080]"
-          onClick={closeModal}
+          onClick={closeEventSuccess}
         >
           x
         </button>

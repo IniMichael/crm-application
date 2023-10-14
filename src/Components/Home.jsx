@@ -1,11 +1,10 @@
 import React from 'react';
-import First from '../components/first';
-// import NavBar from './navBar';
+import SignUp from '../pages/SignUp';
 
 function Home() {
   return (
     <div>
-      <First />
+      <SignUp />
     </div>
   );
 }
