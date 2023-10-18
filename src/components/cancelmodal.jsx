@@ -1,11 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-function CancelModal({ closeCancelRegModal, showCancelRegConfirmModal }) {
+function CancelModal({ closeCancelRegModal, showCancelRegConfirmModal, listId }) {
+  const [id, setId] = useState("");
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    if (userData) {
+      setId(userData.data.id);
+      setToken(userData.token);
+      console.log('Received listId:', listId)
+    }
+  }, []);
+
 
   function handleSubmit(event) {
     event.preventDefault();
+    
+   const cancel ={
+    isCancelled:true,
+   }
 
-    // CALL REG API
+    axios
+      .patch(`https://crm-ai.onrender.com/api/v1/registrations/${listId}`, cancel, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        console.log("Event deleted successfully:", response.data);
+        
+        onEventDeleted(event._id);
+        closeDeleteModal();
+      })
+      .catch((error) => {
+        console.error("Error deleting event:", error);
+      });
 
     showCancelRegConfirmModal();
     closeCancelRegModal();

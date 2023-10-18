@@ -11,7 +11,8 @@ import analyticsImg from "../assets/analytics.png";
 import setImg from "../assets/set.png";
 import upcomingImg from "../assets/upcoming.png";
 import "../UserDashboard.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import RegFormModal from "../components/regformmodal";
 import RegSuccessModal from "../components/regsuccessmodal";
 import CreateEventFormModal from "../components/createeventformmodal";
@@ -19,9 +20,16 @@ import CreateEventSuccessModal from "../components/createeventsuccmodal";
 import CancelModal from "../components/cancelmodal";
 import CancelledModal from "../components/cancelledmodal";
 
+
+
 function UserDashboard() {
   const [isRegFormModalOpen, setIsRegFormModalOpen] = useState(false);
   const [isRegisterSuccess, setIsRegisterSuccess] = useState(false);
+
+  const [events, setEvents] = useState([]);
+  const [gigs, setGigs] = useState([]);
+  const [regLists, setRegLists] = useState([]);
+
 
   const [isCreateEventModalOpen, setIsCreateEventModalOpen] = useState(false);
   const [isCreateEventSuccess, setIsCreateEventSuccess] = useState(false);
@@ -30,8 +38,84 @@ function UserDashboard() {
   const [isCancelRegSuccess, setIsCancelRegSuccess] = useState(false);
 
   const [isContentBlurred, setIsContentBlurred] = useState(false);
+  
+  const [eventId, setEventId] = useState(null);
+  const [listId, setListId] = useState(null);
+  const [loadingEvents, setLoadingEvents] = useState(false);
+  const [loadingGigs, setLoadingGigs] = useState(false);
+  const [loadingRegLists, setLoadingRegLists] = useState(false);
 
-  const openRegFormModal = () => {
+
+  
+  
+ 
+  
+  useEffect(() => {
+
+    const userData = JSON.parse(localStorage.getItem("userData"));
+  
+    console.log(userData.data.id);
+    const headers = {
+      Authorization: `Bearer ${userData.token}`,
+    };
+
+    //Upcoming Events
+    setLoadingEvents(true);
+    axios.get("https://crm-ai.onrender.com/api/v1/events/", {
+      headers,
+    })
+      .then((response) => {
+        setEvents(response.data.doc);
+      })
+      .catch((error) => {
+        console.error("Error fetching events:", error);
+      })
+      .finally(() => {
+        setLoadingEvents(false);
+      });
+    
+
+      // My Events
+      setLoadingGigs(true);
+    axios.get(`https://crm-ai.onrender.com/api/v1/events?createdBy=${userData.data.id}`, {
+      headers,
+    })
+      .then((response) => {
+        setGigs(response.data.doc);
+      })
+      .catch((error) => {
+        console.error("Error fetching events:", error);
+      })
+      .finally(() => {
+        setLoadingGigs(false);
+      });
+
+    //Registrations
+    setLoadingRegLists(true);
+    axios.get(`https://crm-ai.onrender.com/api/v1/registrations?user=${userData.data.id}&isCancelled=false`, {
+      headers,
+      
+    })
+      .then((response) => {
+        setRegLists(response.data.doc);
+        console.log("Register list", regLists);
+      })
+      .catch((error) => {
+        console.error("Error fetching events:", error);
+      })
+      .finally(() => {
+        setLoadingRegLists(false);
+      });
+    
+  }, [events, gigs, regLists]);
+
+
+
+
+
+
+  const openRegFormModal = (eventId) => {
+    setEventId(eventId);
     setIsRegFormModalOpen(true);
     setIsContentBlurred(true);
   };
@@ -41,7 +125,8 @@ function UserDashboard() {
     setIsContentBlurred(true);
   };
 
-  const openCancelRegModal = () => {
+  const openCancelRegModal = (listId) => {
+    setListId(listId)
     setIsCancelRegModalOpen(true)
     setIsContentBlurred(true);
   };
@@ -52,6 +137,9 @@ function UserDashboard() {
     setIsCancelRegModalOpen(false);
     setIsCustomMsgModalOpen(false);
   };
+
+
+
 
   return (
     <div className={`App ${isContentBlurred ? "blur-none" : ""}`}>
@@ -160,8 +248,34 @@ function UserDashboard() {
                 <h3>Upcoming Events</h3>
                 <a href="#">See More</a>
               </div>
+             
+              {events.map((event, index ) => (
+        <div className="save-me" key={index}>
+          <h3>{event.name}</h3>
+          <div className="about">
+            <p>
+              <span className="p-span">About the Event:</span> {event.about}
+            </p>
+            
+          </div>
+          <div className="date">
+            <div>
+              <p>
+                <span>Date:</span> {event.date}
+              </p>
+              <p>
+                <span>Location:</span> {event.location}
+              </p>
+            </div>
+            <div>
+              <button onClick={() => openRegFormModal(event.id)}>Save me a spot!</button>
 
-              <div className="save-me">
+            </div>
+          </div>
+        </div>
+      ))}
+
+              {/* <div className="save-me">
                 <h3>Product Launch</h3>
                 <div className="about">
                   <p>
@@ -217,7 +331,7 @@ function UserDashboard() {
                     <button onClick={openRegFormModal}>Save me a spot!</button>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="btn-up">
                 <h3>Register Event</h3>
@@ -225,7 +339,7 @@ function UserDashboard() {
               </div>
 
               <div className="net-div">
-                <div className="net-container">
+                {/* <div className="net-container">
                   <p>Networking Event for Enterpreneurs</p>
                   <p className="br-family">
                     A once in a lifetime opportunity to<br></br>
@@ -236,8 +350,22 @@ function UserDashboard() {
                     <span>Date:</span> 8:30pm on the 18th, may 2023
                   </p>
                   <button onClick={openCancelRegModal}>Cancel Registration</button>
-                </div>
-                <div className="net-container">
+                </div> */}
+               
+                {regLists.map((list, index) => (
+                  <div className="net-container" key={index}>
+                    <p>{list.event.name}</p>
+                    <p className="br-family">{list.event.about}</p>
+                    <p>Location: {list.event.location}</p>
+                    <p>
+                    <span>Date:</span> {list.event.date}
+                  </p>
+                  <button onClick={() => openCancelRegModal(list.id)}>Cancel Registration</button>
+                  
+
+                  </div>
+                ))}
+                {/* <div className="net-container">
                   <p className="netwk">Networking Event for Enterpreneurs</p>
                   <p className="br-family">
                     A once in a lifetime opportunity to<br></br>
@@ -249,7 +377,7 @@ function UserDashboard() {
                     may 2023
                   </p>
                   <button onClick={openCancelRegModal}>Cancel Registration</button>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -323,8 +451,13 @@ function UserDashboard() {
 
                 <div className="my-event">
                   <h1>My Event</h1>
-                  <div className="my-event-btn">
-                    <p>No Event for today</p>
+                  <div className="my-event-btn grid gap-2">
+                  {gigs.map((gig, index) => (
+        <div className="" key={index}>
+          <h3 className=" font-medium text-lg">{gig.name}</h3>
+        </div>
+      ))}
+
                   </div>
                 </div>
 
@@ -374,6 +507,7 @@ function UserDashboard() {
       {isRegFormModalOpen && (
         <RegFormModal
           closeFormModal={closeFormModal}
+          eventId={eventId}
           showRegisterConfirmModal={() => setIsRegisterSuccess(true)}
         />
       )}
@@ -385,6 +519,7 @@ function UserDashboard() {
 
       {isCancelRegModalOpen && (
         <CancelModal 
+        listId={listId}
           closeCancelRegModal={closeFormModal} 
           showCancelRegConfirmModal={() => setIsCancelRegSuccess(true)}
         />
