@@ -41,9 +41,8 @@ function UserDashboard() {
   
   const [eventId, setEventId] = useState(null);
   const [listId, setListId] = useState(null);
-  const [loadingEvents, setLoadingEvents] = useState(false);
-  const [loadingGigs, setLoadingGigs] = useState(false);
-  const [loadingRegLists, setLoadingRegLists] = useState(false);
+  
+  
 
 
   
@@ -54,13 +53,13 @@ function UserDashboard() {
 
     const userData = JSON.parse(localStorage.getItem("userData"));
   
-    console.log(userData.data.id);
+    
     const headers = {
       Authorization: `Bearer ${userData.token}`,
     };
 
     //Upcoming Events
-    setLoadingEvents(true);
+   
     axios.get("https://crm-ai.onrender.com/api/v1/events/", {
       headers,
     })
@@ -70,13 +69,12 @@ function UserDashboard() {
       .catch((error) => {
         console.error("Error fetching events:", error);
       })
-      .finally(() => {
-        setLoadingEvents(false);
-      });
+      
+      
     
 
       // My Events
-      setLoadingGigs(true);
+      
     axios.get(`https://crm-ai.onrender.com/api/v1/events?createdBy=${userData.data.id}`, {
       headers,
     })
@@ -86,26 +84,22 @@ function UserDashboard() {
       .catch((error) => {
         console.error("Error fetching events:", error);
       })
-      .finally(() => {
-        setLoadingGigs(false);
-      });
+     
 
     //Registrations
-    setLoadingRegLists(true);
+    
     axios.get(`https://crm-ai.onrender.com/api/v1/registrations?user=${userData.data.id}&isCancelled=false`, {
       headers,
       
     })
       .then((response) => {
         setRegLists(response.data.doc);
-        console.log("Register list", regLists);
+        
       })
       .catch((error) => {
         console.error("Error fetching events:", error);
       })
-      .finally(() => {
-        setLoadingRegLists(false);
-      });
+      
     
   }, [events, gigs, regLists]);
 
@@ -249,6 +243,8 @@ function UserDashboard() {
                 <a href="#">See More</a>
               </div>
              
+             
+
               {events.map((event, index ) => (
         <div className="save-me" key={index}>
           <h3>{event.name}</h3>
