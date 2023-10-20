@@ -42,7 +42,7 @@ function Login() {
         localStorage.setItem("userData", JSON.stringify(response.data));
 
         login(response.data);
-        navigate("/UserDashboard");
+        navigate("/dashboard");
       } else {
         toast.error(response.data.message || "Sign in failed.");
       }

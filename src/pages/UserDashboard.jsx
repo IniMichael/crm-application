@@ -92,7 +92,7 @@ function UserDashboard() {
       .catch((error) => {
         console.error("Error fetching events:", error);
       });
-  }, [regLists]);
+  }, [regLists, gigs]);
 
   const openRegFormModal = (eventId) => {
     setEventId(eventId);
