@@ -18,7 +18,7 @@ function RegSuccessModal({closeRegSuccess}) {
       <div>
       <p className="text-3xl font-semibold flex justify-center">Registration Successful</p>
                 <img src={checkMark} alt='My Image' className='h-[170px] w-[170px] mx-auto mt-12 mb-10'/> 
-                <p className='mx-auto text-center w-[100%] text-xl font-normal'>HURRAY!! A spot has been reserved for you at the Health and Wellness Conference.</p>
+                <p className='mx-auto text-center w-[100%] text-xl font-normal'>HURRAY!! Your spot has been reserved.</p>
         </div>
     </div>
   </div>
