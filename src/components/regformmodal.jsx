@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function RegFormModal({ closeFormModal, showRegisterConfirmModal, eventId}) {
+function RegFormModal({ closeFormModal, showRegisterConfirmModal, eventId, regLists, setRegLists}) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -49,8 +49,9 @@ function RegFormModal({ closeFormModal, showRegisterConfirmModal, eventId}) {
         },
       })
       .then((response) => {
+       
         
-        console.log("Registration successful:", response.data);
+        console.log("Registration successful:");
 
 
  

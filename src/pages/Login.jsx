@@ -1,7 +1,7 @@
 import "../LogIn.css";
 import testsvg from "../assets/flat.svg";
 import picture from "../assets/image 11.png";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -9,6 +9,7 @@ import { useAuth } from "../auth/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
+import { Link } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
@@ -34,12 +35,12 @@ function Login() {
           password,
         }
       );
-      console.log(response.data);
+      
 
       if (response.status === 200) {
         toast.success("Sign in successful!");
         localStorage.setItem("userData", JSON.stringify(response.data));
-       
+
         login(response.data);
         navigate("/UserDashboard");
       } else {
@@ -54,7 +55,6 @@ function Login() {
 
   return (
     <div className="App">
-      
       <header className="App-header">
         <div className="picture">
           <img className="picture-btn" src={picture}></img>
@@ -132,9 +132,9 @@ function Login() {
 
                   <p className="sign-btn">
                     Don’t have an account?{" "}
-                    <a href="" onClick={() => navigate("/SignUp")}>
+                    <Link to="/signup">
                       Sign Up
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </form>

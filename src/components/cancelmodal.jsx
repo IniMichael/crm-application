@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function CancelModal({ closeCancelRegModal, showCancelRegConfirmModal, listId }) {
+function CancelModal({ closeCancelRegModal, showCancelRegConfirmModal, listId, regLists, setRegLists}) {
   const [id, setId] = useState("");
   const [token, setToken] = useState("");
 
@@ -10,7 +10,7 @@ function CancelModal({ closeCancelRegModal, showCancelRegConfirmModal, listId })
     if (userData) {
       setId(userData.data.id);
       setToken(userData.token);
-      console.log('Received listId:', listId)
+      console.log('Received listId:', listId, regLists)
     }
   }, []);
 
@@ -22,14 +22,17 @@ function CancelModal({ closeCancelRegModal, showCancelRegConfirmModal, listId })
     isCancelled:true,
    }
 
-    axios
-      .patch(`https://crm-ai.onrender.com/api/v1/registrations/${listId}`, cancel, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
+   
+   axios
+   .patch(`https://crm-ai.onrender.com/api/v1/registrations/${listId}`, cancel, {
+     headers: {
+       Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((response) => {
+        const newRegLists = regLists.filter(item => item.id != listId)
         console.log("Event deleted successfully:", response.data);
+        setRegLists(newRegLists)
         
         onEventDeleted(event._id);
         closeDeleteModal();

@@ -7,17 +7,16 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import { AuthProvider } from "./auth/AuthContext";
 
-
 function App() {
   return (
     <Router>
-        <AuthProvider>
-      <Routes>
+      <AuthProvider>
+        <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/UserDashboard" element={<UserDashboard />} />
-      </Routes>
-        </AuthProvider>
+        </Routes>
+      </AuthProvider>
     </Router>
   );
 }

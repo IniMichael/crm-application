@@ -4,6 +4,7 @@ import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -124,14 +125,14 @@ function SignUp() {
 
         <p className="flex justify-center gap-1 text-[#5D5D5D]">
           Already have an account?
-          <a href="">
+          <Link to="/">
             <span
               className="italic font-semibold text-[#5D5D5D]"
-              onClick={() => navigate("/")}
+             
             >
               Login
             </span>
-          </a>
+          </Link>
         </p>
       </div>
       <p className="text-[#5D5D5D] text-center">{message}</p>

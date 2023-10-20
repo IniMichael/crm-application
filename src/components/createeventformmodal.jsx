@@ -23,12 +23,6 @@ function CreateEventFormModal({
     }
   }, []);
 
-
- 
-
-
-  
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
